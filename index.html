@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SpeedSterMotors Home</title>
+        <meta charset="utf-8">
+        <script>
+        </script>
+
+        <style>
+            /* embedded/internal css */
+
+        </style>
+
+        <link rel="stylesheet" href="styles/mystyle.css">
+
+    </head>
+    <body>
+        <div id="divcontainer">
+            <header>
+                <div id="divbanner">
+                    <p id="sitetitle">SpeedSter Motors</p>
+                    <p id="sitemotto">The Home Of Quality Automobiles For Every Lifestyle</p>
+                </div>
+            </header>
+
+            <div id="divmenu">
+                <nav>
+                    <a href="index.html">Home</a> | 
+                    <a href="aboutus.html">About Us</a> | 
+                    <a href="services.html">Services</a> | 
+                    <a href="sales.html">Sales</a> | 
+                    <a href="#">Gallery</a> | 
+                    <a href="#">Register</a> | 
+                    <a href="#">Login</a>
+                </nav>
+            </div>
+
+            <div id="divcol-container">
+                <div id="divsidebar"  class="col">
+                    <ul>
+
+                        <li><a href="latestmodels.html"><img src="images/latestmodels.jpg" alt="Latest Models" title="Latest Models 2021" width="100%"></a></li>
+
+                        <li><a href="#">Sports Cars</a></li>
+
+                        <li><a href="#">Best Deals</a></li>
+
+                        <li><a href="#">Valentine Specials</a></li>
+
+                        <li><a href="#">Motor Cycles</a></li>
+
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+
+
+                <div id="divcontent" class="col">
+                    <div>
+                        <p>🏎️ Best Cars For Every Life Sty🏎️le </p>
+                    </div>
+
+                    <h1>Welcome To SpeedSterMotors</h1>
+
+                    <h1>Trust Us For The Best Deals in Motoring</h1>
+
+                    <p>Kindly contact our professional staff for deals</p>
+
+                    <p>Our openning hours are : 0800 - 1700</p>
+
+                    <h3>We guarantee : 100% Money back gurantee</h3>
+                    
+                </div>
+
+            </div>
+
+            <div id="divfooter">
+                <p id="footer" >
+                    copyright@SpeedSterMotors.co.bw : 
+                </p>
+            </div>
+
+        </div>
+
+        <script>
+            var months = ('Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec').split(',');
+            var today = new Date();
+            var d = today.getDate();
+            var m = today.getMonth()+1;
+            var y = today.getFullYear();
+            d = (d < 10)? '0'+d : d;
+            m = (m < 10)? '0'+m : m;
+            dt = `${d}-${months[m-1]}-${y}`;
+            document.querySelector('#footer').innerHTML += dt;
+        </script>
+
+    </body>
+</html>
+
+
