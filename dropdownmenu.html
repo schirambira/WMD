@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SpeedSterMotors Dropdown Menu</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/jpg" href="images/favicon.jpg"/>
+        <script src="scripts/LoadMasterPage.js"></script>
+        <style>
+            #root ul#mainmenu>li{
+                display:inline-block;
+                vertical-align: top;
+            }
+            #root ul.submenu>li, ul.subsubmenu>li{
+                list-style-type: none;
+            }
+            #root ul.submenu, ul.subsubmenu{
+                padding-left:17px;
+                visibility: hidden;
+            }
+            #root ul#mainmenu>li:hover>.submenu{
+                visibility: visible;
+            }
+            #root ul.submenu>li:hover>.subsubmenu{
+                visibility: visible;
+            }
+            #root ul#mainmenu li>a{
+                text-decoration: none;
+            }
+            #root ul#mainmenu>li>a::before{
+                content:"\1F4BC";
+            }
+            #root ul#mainmenu>li:hover>a::before{
+                content:"\1F4A1";
+            }
+            #root ul.submenu>li.submain>a::after{
+                content:"\2B9B";  /*  	\2795 (+)  */
+                font-size:18px;
+                color: darkgreen;
+            }
+            #root ul.submenu>li.submain:hover>a::after{
+                content:"\2B99"; /*  	\2796 (-)  */
+                font-size:18px;
+                color: red;
+            }
+            #root ul#mainmenu a{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                color:navy;
+            }
+            #root ul.submenu>li:not(.submain):hover, ul.subsubmenu>li:hover{
+                background-image:radial-gradient(lightslategray, yellow, turquoise)
+            }
+
+        </style>
+    </head>
+    <body>
+        
+
+       <!--create dropdown navigation menu-->
+        <div id="root">
+            <div id="divmenu">
+                <nav id="navmenu">
+                        <ul id="mainmenu">
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">About</a>
+                                <ul class="submenu">
+                                    <li><a href="background.html">Background</a></li>
+                                    <li><a href="contactus.html">Contact Us</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Car Range</a>
+                                <ul class="submenu">
+                                    <li><a href="#">All Cars</a></li>
+                                    <li><a href="#">Sport Cars</a></li>
+                                    <li><a href="#">Executive Cars</a></li>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Sales</a>
+                                <ul class="submenu">
+                                    <li><a href="#">View Prices</a></li>
+                                    <li class="submain"><a href="#">Sales</a>
+                                        <ul class="subsubmenu">
+                                            <li><a href="sales.html">Cash Sales</a></li>
+                                            <li><a href="#">Credit Sales</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Account</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Register</a></li>
+                                    <li><a href="#">Update KYC</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="login.html">Login</a>
+                            </li>
+                        </ul>
+                </nav>
+            </div>
+        </div>
+
+       <br>
+       <p></p>
+
+       <div>
+           <ul>
+               <li>Africa</li>
+               <li>Asia</li>
+               <li>Europe</li>
+               <li>America</li>
+               <li>Australia</li>
+           </ul>
+       </div>
+
+    </body>
+</html>
