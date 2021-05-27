@@ -130,6 +130,8 @@ How does css identify tags to be styled
 
 body {
     background-color: ghostwhite;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 /* MASTER PAGE */
 
@@ -160,13 +162,16 @@ body {
 }
 
 #divbanner > #sitemotto{
-    color:yellow;
+    color:lime;
     padding-bottom:60px;
 }
 
-#divsidebar>ul{
+#divsidebar>ul, #divsidebar>ul>li{
     list-style-type: none;
+    margin:0;
+    padding:5px;
 }
+
 body * {
     font: 14px Arial, sans-serif;
 }
@@ -185,12 +190,14 @@ body * {
     padding-left: 2px;
     padding-top: 5px;
 }
-divcol-container {
+
+
+#divcol-container {
     display: table; /* Make the container element behave like a table */
     width: 100%; /* Set full-width to expand the whole page */
-    box-sizing: border-box;
     border-collapse: separate;
     border-spacing: 0px 0; /*(left/right) - (top/bottom)*/
+    table-layout: fixed; /*restrict col width */
 }
 
 div.col {
@@ -198,7 +205,7 @@ div.col {
     height: 70vh;
 }
 #divsidebar {
-    width: 25%;
+    width: 30%;
     border: 1px solid Green;
     border-radius: 1px;
     background-color: honeydew;
@@ -207,13 +214,14 @@ div.col {
     text-align: left;
     margin-bottom: 2px;
     vertical-align: top;
+    padding:5px;
 }
 #divcontent {
-    width: 74.5%;
+    width: 70%;
     border: 1px solid Green;
     border-radius: 1px;
     background-color: white;
-    color: royalblue;
+    color: blue;
     font-size: 12px;
     text-align: left;
     box-sizing: border-box;
@@ -222,15 +230,26 @@ div.col {
 #divfooter {
     clear: both;
     width: 100%;
-    height: 25px;
+    min-height: 25px;
     border: 1px solid Green;
     border-radius: 0 0 5px 5px;
     background-color: #3db2e1;
-    color: white;
+    color: yellow;
     font-size: 12px;
     text-align: center;
     margin-top: 2px;
 }
+#divfooter>p#footer{
+    text-align: center;
+}
+#divsocialmedia img{
+    border: 2px solid aqua ;
+    border-radius:50%;
+}
+#divsocialmedia img:hover{
+    opacity:0.5;
+}
+
 #heading{
     font-size:30px;
     color: Navy;
@@ -244,30 +263,232 @@ p{
 }
 
 
+
+
 /*-------content style------*/
 
-#divcontent > :not(p){ /*color children, skip paragraphs */
-    background-color: lime;
+#divcontent > :not(p)+fieldset:nth-child(9){ /*color children, skip paragraphs */
+    background-color: red;
 }
 
 #divcontent p:not(#divcontent>p){
-    background-color: yellow;;
+    color: black;
 }
 
 #divcontent > p + p{
-    background-color: darkgoldenrod;
+    background-color: rgb(186, 228, 238); 
 }
 
-#divcontent > div ~ :not(p){
+#divcontent > div ~ :not(p::after){
     color:red;
 }
 
 
 #divsidebar>ul>li:nth-child(4) a{
-    color:red;
+    color:navy;
 }
 
 
 #divmenu>a::after{
     content:"D";
 } 
+
+
+/* css box model */
+
+#divcontent>p:first-child{
+    color:blue;
+    /*
+    padding:10px;
+    border:5px groove green;
+    margin:10px;
+    text-align: center;
+    font-size:2em;
+    */
+}
+
+#divcontent>p:first-child{
+    padding-top:10px;
+    padding-right:10px;
+    padding-bottom: 10px;
+    padding-left:10px;
+
+
+    border-top:5px dotted yellow;
+    border-bottom:5px double red;
+    border-left:10px groove turquoise;
+    border-right:2px solid steelblue;
+
+
+    margin:10px 10px 10px 10px; /*T R B L*/
+
+    font-size:2em;
+}
+
+
+
+#divcontent>p:nth-child(2)::first-letter{
+    padding-top:10px;
+    padding-right:10px;
+    padding-bottom: 10px;
+    padding-left:10px;
+    border:1px solid green;
+    margin:50px;
+}
+
+
+#divcontent>div>div>p{
+    letter-spacing: 20px;
+    background-color: yellow;
+    font-size: 2em;
+    text-align: center;
+    border:5px dotted teal;
+}
+
+
+/*
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5em;
+    color: green;
+    text-transform: uppercase;
+    font-style: italic;
+    text-decoration: underline;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: -5px 10px blue;
+}
+
+h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2em;
+    color:darkcyan;
+    font-style: italic;
+    text-align: left;
+    letter-spacing: 2px;
+}
+*/
+
+
+
+h1{
+    font-size: 2em;
+    color:green;
+    background-color:none;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: 5px 2px greenyellow;
+}
+
+h2{
+    font-size: 1.5em;
+    color:rgb(240, 32, 170);
+    font-style: italic;
+    
+        transform:scaleX(3);
+        transform:scaleY(10);
+        transform:rotate(-1deg);
+    
+}
+
+p{
+    text-align: justify;
+    padding:5px;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+    line-height: 18px;
+}
+
+p#footnote{
+    color:red;
+    background-color: yellow;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+
+#divbackground>p{
+    background-image: linear-gradient(lightcyan, yellowgreen);
+}
+
+#divbackground>p{
+   /* background-image: linear-gradient(to right, red , yellow); 
+   background-image: linear-gradient(to bottom right, red, yellow);
+   background-image: linear-gradient(red, yellow, green);
+   background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+   background-image: radial-gradient(red, yellow, green);
+   background-image: radial-gradient(red 5%, yellow 15%, green 60%);
+   background-image: radial-gradient(circle, red, yellow, green);*/
+   background-image: repeating-radial-gradient(lightcyan, rgb(247, 247, 213) 10%, rgb(195, 252, 195) 15%);
+}
+
+/*~~~~~~~~~~~~~form controls styling~~~~~~~~~~~~~~*/
+button, input[type='submit'], input[type='reset'], input[type='button']{
+    background-color: #5ba3e0;
+    border: #2e6da4;
+    font-family: Arial, Geneva, Arial, Helvetica,  sans-serif;
+    color: #fff;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    border-radius: 2px;
+    line-height: 1.2;
+    text-decoration:none;
+}
+
+fieldset>label:not(.check){
+    color:green;
+    width:150px;
+    display: inline-block;
+    text-align: left;
+}
+fieldset>label:not(.check)::after{
+    content:" : ";
+    float: right;
+}
+label.check{
+    color:royalblue;
+}
+label[for="customerid"]+input[type="text"]{
+    color: red;
+    background-image:radial-gradient(yellowgreen, azure, lightcyan);
+}
+fieldset{
+    border:1px solid turquoise;
+    border-radius: 8px;
+    background-image:linear-gradient(lightcyan, peachpuff);
+    padding: 20px;
+}
+legend{
+    border:1px solid turquoise;
+    border-radius: 2px;
+    background-image: linear-gradient(lightcyan, lightyellow, lightcyan);
+    height:22px;
+    padding: 3px;
+}
+/*select desired input types leaving undesired*/
+input[type="text"],input[type="date"],input[type="time"],input[type="password"], select{
+    border:1px solid lightskyblue;
+    border-radius: 3px;
+    margin-bottom: 3px;
+    height:24px;
+    width:350px;
+}
+/*select all inputs and filter out undesired || same results as above*/
+input:not([type=checkbox]):not([type=radio]):not([type=reset]):not([type=submit]):not([type=button]), select{
+    border:1px solid lightskyblue;
+    border-radius: 3px;
+    margin-bottom: 3px;
+    height:24px;
+    width:350px;
+}
+
+/*~~~~~~~~~~~~~~`*/
+
+
+
+
+
+
