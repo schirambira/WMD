@@ -117,28 +117,7 @@
               }
           });
       }
-
-      //--
-      // Fetch all the details elements within the accordion container
-      const detailsList = document.querySelectorAll("ul ul");
-      
-      // Add toggle listeners to each details element
-      detailsList.forEach(details => {
-          details.addEventListener("toggle", handleDetailToggle);
-      });
-      
-      function handleDetailToggle(event) {
-          // Only act if the event target is being opened
-          if (!event.target.open) return;
-      
-          // Loop through all details elements and close those that are not the current event target
-          detailsList.forEach(details => {
-              if (details !== event.target) {
-                  details.open = false;
-              }
-          });
-      }
-      //--
+      //
     });
   </script>
 </html>
