@@ -12,58 +12,81 @@
     <h1>My Personal Profile</h1>
 
     <H2>African Countries</H2>
-    <details>
-      <summary>Zimbabwe</summary>
-      <ul>
-        <li>Harare</li>
-        <li>Bulawayo</li>
-        <li>Masvingo</li>
-        <li>Mutare</li>
-        <li>Gweru</li>
-      </ul>
-    </details>
-    <details>
-      <summary>South Africa</summary>
-      <ul>
-        <li>Cape Town</li>
-        <li>Johannesburg</li>
-        <li>Pretoria</li>
-        <li>Durban</li>
-        <li>Mpumalanga</li>
-      </ul>
-    </details>
-    <details>
-      <summary>Namibia</summary>
-      <ul>
-        <li>Windhoek</li>
-        <li>Walvis Bay</li>
-        <li>Swakopmund</li>
-        <li>Ongwediva</li>
-        <li>Otjiwarongo</li>
-      </ul>
-    </details>
-    <details>
-      <summary>Botswana</summary>
-      <ul>
-        <li>Gaborone</li>
-        <li>Francistown</li>
-        <li>Mahalapye</li>
-        <li>Lobatse</li>
-        <li>Kanye</li>
-      </ul>
-    </details>
-    <details>
-      <summary>Zambia</summary>
-      <ul>
-        <li>Lusaka</li>
-        <li>Livingstone</li>
-        <li>Ndola</li>
-        <li>Kitwe</li>
-        <li>Chingola</li>
-        <li>Chipata</li>
-        <li>Kabwe</li>
-        <li>Kapiri Mposhi</li>
-      </ul>
-    </details>
+    <div class="accodion">
+      <details>
+        <summary>Zimbabwe</summary>
+        <ul>
+          <li>Harare</li>
+          <li>Bulawayo</li>
+          <li>Masvingo</li>
+          <li>Mutare</li>
+          <li>Gweru</li>
+        </ul>
+      </details>
+      <details>
+        <summary>South Africa</summary>
+        <ul>
+          <li>Cape Town</li>
+          <li>Johannesburg</li>
+          <li>Pretoria</li>
+          <li>Durban</li>
+          <li>Mpumalanga</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Namibia</summary>
+        <ul>
+          <li>Windhoek</li>
+          <li>Walvis Bay</li>
+          <li>Swakopmund</li>
+          <li>Ongwediva</li>
+          <li>Otjiwarongo</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Botswana</summary>
+        <ul>
+          <li>Gaborone</li>
+          <li>Francistown</li>
+          <li>Mahalapye</li>
+          <li>Lobatse</li>
+          <li>Kanye</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Zambia</summary>
+        <ul>
+          <li>Lusaka</li>
+          <li>Livingstone</li>
+          <li>Ndola</li>
+          <li>Kitwe</li>
+          <li>Chingola</li>
+          <li>Chipata</li>
+          <li>Kabwe</li>
+          <li>Kapiri Mposhi</li>
+        </ul>
+      </details>
+    </div>
   </body>
+  <script>
+    // Fetch all the details elements within the accordion container
+    const detailsList = document.querySelectorAll(".accordion details");
+    
+    // Add toggle listeners to each details element
+    detailsList.forEach(details => {
+        details.addEventListener("toggle", handleDetailToggle);
+    });
+    
+    function handleDetailToggle(event) {
+        // Only act if the event target is being opened
+        if (!event.target.open) return;
+    
+        // Loop through all details elements and close those that are not the current event target
+        detailsList.forEach(details => {
+            if (details !== event.target) {
+                details.open = false;
+            }
+        });
+    }
+  </script>
 </html>
