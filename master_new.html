@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Master Page</title>
+    <script>
+        // Master Page Onload
+        window.onload = () => console.log("Master Page fully loaded.");
+
+        async function navigateTo(url) {
+            const container = document.getElementById('content-area');
+            
+            try {
+                const response = await fetch(url);
+                const html = await response.text();
+
+                // 1. Inject HTML
+                container.innerHTML = html;
+
+                // 2. Process and Execute Scripts
+                const scripts = container.querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    
+                    // Copy attributes (src, type, etc.)
+                    Array.from(oldScript.attributes).forEach(attr => {
+                        newScript.setAttribute(attr.name, attr.value);
+                    });
+
+                    // Copy inline script content
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    
+                    // Append to head/body to trigger execution
+                    document.body.appendChild(newScript);
+                    
+                    // Cleanup: Remove original script to avoid clutter
+                    oldScript.parentNode.removeChild(oldScript);
+                });
+
+                // 3. Manually trigger a custom "ContentReady" event
+                const event = new CustomEvent('ContentPageReady');
+                document.dispatchEvent(event);
+
+            } catch (err) {
+                console.error('Navigation error:', err);
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <button onclick="navigateTo('homepage.html')">Home</button>
+        <button onclick="navigateTo('settings.html')">Settings</button>
+    </nav>
+
+    <div id="content-area">
+        </div>
+</body>
+</html>
